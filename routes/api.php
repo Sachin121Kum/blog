@@ -4,6 +4,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dummy;
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\UserController;
+
 
 /*
 
@@ -41,3 +44,8 @@ Route::get(
 );
 Route::delete("delete/{id}",[DeviceController::class,'delete']
 );
+
+Route::post("save",[DeviceController::class,'validation']);
+
+Route::apiResource("member",MemberController::class);
+Route::post("login",[UserController::class,'index']);
