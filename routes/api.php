@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dummy;
-
+use App\Http\Controllers\DeviceController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,3 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get("data",[dummy::class,'getData']);
+
+Route::get("list/{id?}",[DeviceController::class,'list']);
+
+Route::post(
+    "add",[DeviceController::class,'add']
+);
