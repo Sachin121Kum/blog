@@ -49,4 +49,16 @@ class DeviceController extends Controller
         return Device::where("name","like","%".$name."%")->get();
 
     }
+
+    public function delete($id)
+    {
+
+        $device = Device::find($id);
+        $result=$device->delete();
+if ($result) {
+    return ["result"=>"Record Has been deleted = " . $id ];
+}else{
+    return ["result"=>"Record Has been Not Deleted  "] ;
+}
+    }
 }
