@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Device;
+use Dotenv\Validator as DotenvValidator;
+use Illuminate\Validation\Validator as ValidationValidator;
+
 
 class DeviceController extends Controller
 {
@@ -49,4 +52,40 @@ class DeviceController extends Controller
         return Device::where("name","like","%".$name."%")->get();
 
     }
+
+    //delete data
+    public function delete($id)
+    {
+
+        $device = Device::find($id);
+        $result=$device->delete();
+if ($result) {
+    return ["result"=>"Record Has been deleted = " . $id ];
+}else{
+    return ["result"=>"Record Has been Not Deleted  "] ;
 }
+    }
+
+
+//Validation
+
+// public function validation(Request $req)
+// {
+//         $rules = array(
+//             "name" =>"required"
+//         );
+//         $validator = DotenvValidator::make($req->all().$rules);
+//         if($validator->fails)
+//         {
+//             return $validator->errors();
+//         }else{
+//             return ["x"=> "y"] ;
+
+//         }
+
+   
+
+
+}
+
+
