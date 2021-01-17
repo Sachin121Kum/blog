@@ -40,4 +40,13 @@ class DeviceController extends Controller
             return ["result" => "Data is Not Updated"];
         }
     }
+
+    ///Search Method
+
+    public function search($name)
+    {
+
+        return Device::where("name","like","%".$name."%")->get();
+
+    }
 }

@@ -34,3 +34,8 @@ Route::put(
     "update",
     [DeviceController::class, 'update']
 );
+
+Route::get(
+    "search/{name}",
+    [DeviceController::class,'search']
+);
